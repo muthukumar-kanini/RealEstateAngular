@@ -1,0 +1,46 @@
+<p>properties works!</p>
+<h2>Properties</h2>
+
+<form (ngSubmit)="createProperty(propertyForm)" #propertyForm="ngForm">
+  <div class="form-group">
+    <label for="propertyName">Property Name:</label>
+    <input type="text" class="form-control" id="propertyName" name="propertyName" required [(ngModel)]="newProperty.PropertyName">
+  </div>
+  <div class="form-group">
+    <label for="propertyPrice">Property Price:</label>
+    <input type="number" class="form-control" id="propertyPrice" name="propertyPrice" required [(ngModel)]="newProperty.PropertyPrice">
+  </div>
+  <div class="form-group">
+    <label for="propertyLocation">Property Location:</label>
+    <input type="text" class="form-control" id="propertyLocation" name="propertyLocation" required [(ngModel)]="newProperty.PropertyLocation">
+  </div>
+  <div class="form-group">
+    <label for="propertyAvail">Property Availability:</label>
+    <input type="text" class="form-control" id="propertyAvail" name="propertyAvail" required [(ngModel)]="newProperty.PropertyAvail">
+  </div>
+  <button type="submit" class="btn btn-primary">Create Property</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th>Property Price</th>
+      <th>Property Location</th>
+      <th>Property Availability</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let property of properties">
+      <td>{{ property.PropertyName }}</td>
+      <td>{{ property.PropertyPrice }}</td>
+      <td>{{ property.PropertyLocation }}</td>
+      <td>{{ property.PropertyAvail }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" (click)="updateProperty(property)">Update</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteProperty(property.PropertyId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

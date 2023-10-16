@@ -1,0 +1,13 @@
+<h2>kjtbkbhjkbv</h2>
+<tbody>
+  <tr *ngFor="let agent of agents">
+    <td>{{ agent.AgentName }}</td>
+    <td>{{ agent.AgentPhone }}</td>
+    <td>{{ agent.AgentEmail }}</td>
+    <td>{{ agent.AgentRating }}</td>
+    <td>
+      <button class="btn btn-sm btn-primary" (click)="updateAgent(agent)">Update</button>
+      <button class="btn btn-sm btn-danger" (click)="deleteAgent(agent.AgentId || 0)">Delete</button>
+    </td>
+  </tr>
+</tbody>
